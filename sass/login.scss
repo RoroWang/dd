@@ -1,0 +1,48 @@
+.margin{width: 990px;margin: 0 auto;}
+
+#header{height: 95px;width: 100%;background: #fff;border-bottom: 2px solid #000;
+    .logo{    display: block;width: 290px;height: 70px;background: url(../imgs/logo.gif) no-repeat;margin: 10px 0 0 0px;float: left;}
+    .welcom{    border-left: 1px #eee solid;width: 290px;height: 44px;line-height: 44px;font-size: 28px;
+        margin: 26px 0px 0px 15px;float: left;padding: 0px 15px;color: #666;}
+    a.qq{background: url(../imgs/user_icon.png);float: right;width: 24px;height: 24px;cursor: pointer;background-position: -53px 0px;margin: 45px 0 0 20px;}
+    a.xinl{background: url(../imgs/user_icon.png);float: right;width: 24px;height: 24px;cursor: pointer;background-position: -53px -27px;margin: 45px 0 0 20px;}
+    a.wechat{background: url(../imgs/user_icon.png);float: right;width: 24px;height: 24px;cursor: pointer;background-position: -53px -60px;margin: 45px 0 0 20px;}
+}
+
+#center{width: 100%;height: 510px;
+    .banner{height: 475px;background: #f99;width: 100%;}
+    .margin{position: relative;}
+    .login-form{position: absolute;z-index: 1;width: 306px;background: #fff;padding: 20px;overflow: visible;top: 40px;right: 0;
+        .logintit{    height: 27px;line-height: 27px;font-size: 20px;color: #666;
+        a{float: right;font-size: 12px;color: #ff666b;}}
+        .form{
+            .item{overflow: hidden;height: 38px;position: relative;border: 1px solid #ddd;margin-bottom: 20px;
+                .text{    line-height: 18px;height: 18px;border: 0;padding: 10px 0 10px 40px;
+                    width: 264px;float: none;overflow: hidden;font-size: 14px;background: #fff;}
+                .icon{background: url(../imgs/user_icon.png);;display: block;width: 20px;height: 20px;position: absolute;left: 10px;top: 9px;}}
+            .item-name{margin-top:31px;
+                .icon{background-position: 0 -15px;}
+            }
+            .item-pass{             
+                .icon{background-position: 0 -36px;}
+            }
+            .safety{margin-bottom:15px;overflow: hidden;height: 18px;line-height: 18px;
+            .mar-b{    float: left;font: 13px/150% microsoft yahei;color: #666;cursor: pointer;
+            .checkbox{    vertical-align: middle;margin-right: 3px;float: none;}}
+            a{    float: right;}}
+            .loginbtn{    margin-bottom: 20px;overflow: hidden;
+                #loginsubmit{cursor: pointer;width: 300px;height: 35px;font-size: 14px;color: #FFF;background: #ff666b;
+                    text-align: center;line-height: 35px;text-decoration: none;letter-spacing: 2px;border: none;
+                .table{text-align: center;}}}
+        }
+    }
+}
+
+#center .banner .form .safety a:hover{color: #ff666b;}
+
+#footer{line-height: 25px;
+    .nav_bottom{
+        a{color: #666;padding: 0px 8px;}}
+    p{color: #ccc;}
+}
+#footer .nav_bottom a:hover{color: #ff666b;}
