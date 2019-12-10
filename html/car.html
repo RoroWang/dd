@@ -71,7 +71,7 @@
                         </tr>
                         <tr>
                             <td style="width:100%;;border-left:1px solid #eee;border-right:1px solid #eee;">
-                                <table cellpadding="5" cellspacing="1" border="0" width="100%">
+                                <table cellpadding="5" cellspacing="1" border="0" width="100%" style="border:1px solid #eee;">
                                     <tbody>
                                         <tr> 
                                             <td align="center" width="5%">
@@ -91,14 +91,13 @@
                                             </td>
                                             <td align="center" width="15%"><font class="cart_jmprice" id="goods_price_6686547" style="color:#333;font-weight:normal;">￥94.05</font></td>
                                             <td align="center" width="15%">
-                                                <div class="jm_cartnum"> <span class="jmminu" onclick="minus_num(6686547,23001,0,0);">-</span>
-                                                <input type="text" name="goods_number[6686547]" id="goods_number_6686547" value="1" size="4" class="jminputBg" onkeydown="if(event.keyCode == 13) event.returnValue = false" onblur="change_price(6686547,23001,0)">
-                                                <input type="hidden" id="hidden_6686547" value="1">
-                                                <span class="jmadd" onclick="javascript:add_num(6686547,23001,0,0)">+</span> </div>
+                                                <div class="jm_cartnum"> <span class="jmminu">-</span>
+                                                <input type="number" name="goods_number[6686547]" id="goods_number_6686547" value="1" size="4" class="jminputBg">
+                                                <span class="jmadd">+</span> </div>
                                             </td>
              
-                                            <td align="center" width="15%"><font class="cart_jmprice" id="subtotal_6686547" style="color:#333;">￥94.05</font></td>
-                                            <td align="center" width="10%"><a href="javascript:if (confirm('您确实要把该商品移出购物车吗？')) location.href='flow.php?step=drop_goods&amp;id=6686547'; " class="f6" style="color:#666;font-size:12px;">删除</a></td>
+                                            <td align="center" width="15%"><font class="cart_jmprice" id="subtotal_6686547" style="color:#333;font-weight:bold;">￥94.05</font></td>
+                                            <td align="center" width="10%"><a href="#">删除</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -107,7 +106,31 @@
                     </tbody>
                 </table>
             </form>
+            <div style="margin-top: 5px;">
+                <a href="index.html" class="continue_buy">继续购物</a>
+                <div class="te">
+                    <span class="zongji">
+                        总计（不含折扣）
+                        <i class="xiaoji">94.05</i>
+                    </span>
+                    <a href="#" class="checkout" style="color:#fff">去结算</a>
+                </div>
+            </div>
         </div>
     </div>
+    
+        <div id="footer" style="background: #f5f5f5;height: 100px;padding: 40px 0 20px;text-align: center;">
+            <div class="info">
+                <p class="nav_bottom">
+                    <a href="#" target="_blank">网站简介</a><em>|</em>
+                    <a href="#" target="_blank">联系我们</a><em>|</em>
+                    <a href="#" target="_blank">招商合作</a><em>|</em>
+                    <a href="#" target="_blank">用户协议</a><em>|</em>
+                    <a href="#" target="_blank">隐私政策</a><em>|</em>
+                    <a href="#" target="_blank">投诉建议</a>
+                </p>
+                <p>Copyright 2012 - 2019 www.huitouyu.com. All rights reserved. 回头鱼商城版权所有</p>
+            </div>
+        </div>
 </body>
 </html>

@@ -43,7 +43,7 @@ $wit:#fff;
         margin-top: 8px;
     }
 }
-#car{
+#car{Z-index:4;
     .tit{    background: #f3f3f3;
     height: 45px;
     line-height: 45px;}
@@ -73,20 +73,74 @@ $wit:#fff;
             font-family: "Microsoft YaHei";
         }
     }
-            .jm_cartnum {
-                width: 65%;
-                text-align: center;
-                margin: 0 auto;
-                overflow: hidden;
-                span {
-                    float: left;
-                    cursor: pointer;
-                    border: 1px solid #ddd;
-                    width: 20px;
-                    height: 20px;
-                    margin: 0;
-                    padding: 0;
-                    font-size: 15px;
-                }
-            }
+    .jm_cartnum {
+        width: 65%;
+        text-align: center;
+        margin: 0 auto;
+        overflow: hidden;
+        .jminputBg {
+            float: left;
+            width: 30px;
+            text-align: center;
+            margin: 0;
+            border: 1px solid #ddd;
+            height: 20px;
+            line-height: 20px;
+            background: #fff;
+        }
+        span {
+            float: left;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            width: 20px;
+            height: 20px;
+            margin: 0;
+            padding: 0;
+            font-size: 15px;
+        }
+        span.jmminu {
+            font-size: 18px;
+            border-right: none;
+            line-height: 18px;
+        }
+    }
+    a.continue_buy {
+        float: left;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        font-size: 15px;
+        margin-left: 15px;
+        width: 140px;
+        height: 40px;
+        line-height: 40px;
+        background: #fafafa;
+        border: 1px solid #d9d9d9;
+    }
+    .te{float: right;}
+    .xiaoji{
+        color: #ff666b;
+        font-family: Helvetica, arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        margin-right: 20px;
+    }
+    .checkout {
+        display: inline-block;
+        text-align: center;
+        font-size: 17px;
+        width: 150px;
+        height: 40px;
+        line-height: 40px;
+        background: #ff666b;
+
+    }
+}
+
+
+#footer{color: #ccc;position: absolute;bottom:0;width:100%;
+    p{margin: 0;line-height: 25px;}
+    .nav_bottom{
+        a{    padding: 0px 8px;color: #ccc;}}
+    .indexfoot{height: 50px;text-align: center;width: 625px;margin: 15px auto 0;}
 }
