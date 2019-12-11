@@ -1,0 +1,69 @@
+[
+	{	
+		"id":5,
+		"name":"法国Bioderma贝德玛舒妍洁肤卸妆水(粉水)500ml",
+		"price":"99.00",
+		"url":"../imgs/trap (3).jpg"	
+    },
+	{
+		"id":10,
+		"name":"法国Bioderma贝德玛舒妍洁肤卸妆水(蓝水)500ml",
+		"price":"199.00",
+		"url":"https://images.huitouyu.com/images/201910/thumb_img/23002_thumb_G_1571336209992.jpg"
+	},
+	{
+		"id":11,
+		"name":"西班牙Byphasse蓓昂斯四效合一卸妆水500ml",
+		"price":"139.00",
+		"url":"https://images.huitouyu.com/images/201909/thumb_img/10226_thumb_G_1569798071044.jpg"
+    },
+	{	
+		"id":12,
+		"name":"韩国Unny悠宜卸妆水500ml",
+		"price":"99.00",
+		"url":"https://images.huitouyu.com/images/201909/thumb_img/10227_thumb_G_1569802975392.jpg"	
+	},
+	{
+		"id":13,
+		"name":" 日本Hanajirushi花印清新净肤卸妆水(滋养型)99ml",
+		"price":"199.00",
+		"url":"https://images.huitouyu.com/images/201910/thumb_img/10230_thumb_G_1571011179404.jpg"
+	},
+	{
+		"id":14,
+		"name":"韩国Banila Co芭妮兰净柔卸妆水310ml",
+		"price":"139.00",
+		"url":"https://images.huitouyu.com/images/201910/thumb_img/10352_thumb_G_1571267410662.jpg"
+	},
+	{	
+		"id":15,
+		"name":"泰国Atreus VC卸妆水500ml",
+		"price":"65.00",
+		"url":"https://images.huitouyu.com/images/201910/thumb_img/10356_thumb_G_1571330973307.jpg"	
+	},
+	{
+		"id":16,
+		"name":"日本Nursery娜斯丽柚子卸妆啫喱500ml",
+		"price":"199.00",
+		"url":"https://images.huitouyu.com/images/201910/thumb_img/10229_thumb_G_1571006151453.jpg"
+	},
+	{
+		"id":17,
+		"name":" 韩国Innisfree悦诗风吟绿茶精萃平衡柔肤水200ml",
+		"price":"139.00",
+		"url":"https://images.huitouyu.com/images/201910/thumb_img/22104_thumb_G_1571438154314.jpg"
+	},
+    {
+		"id":6,
+		"name":"美国Kiehls科颜氏高保湿精华乳液125ml",
+		"price":"199.00",
+		"url":"../imgs/trap (2).jpg"
+	},
+	{
+		"id":7,
+		"name":"加拿大MAC魅可口红Chili#602号(小辣椒色)3g",
+		"price":"139.00",
+		"url":"../imgs/trap (1).jpg"
+	}
+	
+]

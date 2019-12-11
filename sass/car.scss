@@ -43,7 +43,7 @@ $wit:#fff;
         margin-top: 8px;
     }
 }
-#car{Z-index:4;
+#car{z-index:4;
     .tit{    background: #f3f3f3;
     height: 45px;
     line-height: 45px;}
@@ -123,7 +123,7 @@ $wit:#fff;
 }
 
 
-#footer{color: #ccc;position: absolute;bottom:0;width:100%;
+#footer{color: #ccc;margin-top:100px;bottom:0;width:100%;
     p{margin: 0;line-height: 25px;}
     .nav_bottom{
         a{    padding: 0px 8px;color: #ccc;}}

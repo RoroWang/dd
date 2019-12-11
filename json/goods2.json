@@ -1,0 +1,20 @@
+[
+	{	
+		"id":5,
+		"name":"法国Bioderma贝德玛舒妍洁肤卸妆水(粉水)500ml",
+		"price":"99.00",
+		"url":"../imgs/trap (3).jpg"	
+	},
+	{
+		"id":6,
+		"name":"美国Kiehls科颜氏高保湿精华乳液125ml",
+		"price":"199.00",
+		"url":"../imgs/trap (2).jpg"
+	},
+	{
+		"id":7,
+		"name":"加拿大MAC魅可口红Chili#602号(小辣椒色)3g",
+		"price":"139.00",
+		"url":"../imgs/trap (1).jpg"
+    }
+]

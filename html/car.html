@@ -108,6 +108,7 @@
         constructor(){
             this.url = "http://localhost:86/json/goods.json";
             this.url2 = "http://localhost:86/json/goods2.json";
+            this.url3 = "http://localhost:86/json/list.json";
             this.tbody = document.querySelector(".tbody1");
             this.checkAll = document.querySelector("#chkAll");
 
@@ -129,6 +130,11 @@
 
                 this.getCookie();
             });
+            ajaxGet(this.url3,(res)=>{
+                this.res = JSON.parse(res);
+
+                this.getCookie();
+            });
         }
         getCookie(){
             this.goods = getCookie("goodsCookie")? JSON.parse(getCookie("goodsCookie")):[];
@@ -137,7 +143,7 @@
             // this.display();
         }
         display2(){
-            console.log(this.checkAll.checked)
+
             var str = "";
             for(var i=0;i<this.res.length;i++){
                 for(var j=0;j<this.goods.length;j++){
@@ -162,15 +168,15 @@
                                
                                                 <div class="thumb_name">
                                                     <dl>
-                                                        <dt> <a href="product-23001.html" target="_blank"><img src="${this.res[i].url}" border="0" title="${this.res[j].name}"></a> </dt>
-                                                        <dd> <a href="product-23001.html" target="_blank" class="f6">${this.res[j].name}</a>
+                                                        <dt> <a href="product-23001.html" target="_blank"><img src="${this.res[i].url}" border="0" title="${this.res[i].name}"></a> </dt>
+                                                        <dd> <a href="product-23001.html" target="_blank" class="f6">${this.res[i].name}</a>
                                                         <br>
                                                         <font class="attrname"></font> 
                                                         </dd>
                                                     </dl>
                                                 </div>
                                             </td>
-                                            <td align="center" width="15%">￥<font class="cart_jmprice" id="goods_price_6686547" style="color:#333;font-weight:normal;">${this.res[j].price}</font></td>
+                                            <td align="center" width="15%">￥<font class="cart_jmprice" id="goods_price_6686547" style="color:#333;font-weight:normal;">${this.res[i].price}</font></td>
                                             <td align="center" width="15%">
                                                 <div class="jm_cartnum"> 
                                                     <input type="number" value="${this.goods[j].num}" min=1 size="4" class="jminputBg">
