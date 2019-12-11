@@ -52,7 +52,7 @@
                     <table cellpadding="0" cellspacing="0" width="100%" border="0">
                         <tbody>
                             <tr>
-                              <td width="8%" align="center"><input type="checkbox" id="chkAll" name="chkAll" style="height:28px;vertical-align:middle;">全选</td>
+                              <td width="8%" align="center"><input type="checkbox" id="chkAll" name="chkAll" style="height:28px;vertical-align:middle;"><label for="chkAll">全选</label></td>
                               <td width="37%" align="center">商品</td>
                               <td width="15%" align="center">单价</td>
                               <td width="15%" align="center">数量</td>
@@ -79,7 +79,7 @@
                 <div class="te">
                     <span class="zongji">
                         总计（不含折扣）
-                        <i class="xiaoji">94.05</i>
+                        <i class="xiaoji"></i>
                     </span>
                     <a href="#" class="checkout" style="color:#fff">去结算</a>
                 </div>
@@ -87,7 +87,7 @@
         </div>
     </div>
     
-        <!-- <div id="footer" style="background: #f5f5f5;height: 100px;padding: 40px 0 20px;text-align: center;">
+        <div id="footer" style="background: #f5f5f5;height: 100px;padding: 40px 0 20px;text-align: center;">
             <div class="info">
                 <p class="nav_bottom">
                     <a href="#" target="_blank">网站简介</a><em>|</em>
@@ -99,7 +99,7 @@
                 </p>
                 <p>Copyright 2012 - 2019 www.huitouyu.com. All rights reserved. 回头鱼商城版权所有</p>
             </div>
-        </div> -->
+        </div>
 </body>
 <script src="../js/ajax.js"></script>
 <script src="../js/cookie.js"></script>
@@ -111,10 +111,19 @@
             this.tbody = document.querySelector(".tbody1");
             this.checkAll = document.querySelector("#chkAll");
 
+            this.smoney=document.querySelector(".xiaoji");
+            this.num = 0;
+            this.smon=0;
+
             this.load();
             this.addEvent();
         }
         load(){
+            ajaxGet(this.url,(res)=>{
+                this.res = JSON.parse(res);
+
+                this.getCookie();
+            });
             ajaxGet(this.url2,(res)=>{
                 this.res = JSON.parse(res);
 
@@ -128,12 +137,19 @@
             // this.display();
         }
         display2(){
-            
+            console.log(this.checkAll.checked)
             var str = "";
             for(var i=0;i<this.res.length;i++){
                 for(var j=0;j<this.goods.length;j++){
                     
                     if(this.res[i].id == this.goods[j].id){
+                        if(this.goods[j].check == 1){
+                            this.check = "checked";
+                            this.smon += this.goods[j].num*parseInt(this.res[i].price);
+                        }else{
+                            this.check = "";
+                        }
+                        var sub=parseInt(this.res[i].price)*this.goods[j].num
                         str += `<tr index="${this.res[i].id}">
                             <td style="width:100%;;border-left:1px solid #eee;border-right:1px solid #eee;">
                                 <table cellpadding="5" cellspacing="1" border="0" width="100%" style="border:1px solid #eee;">
@@ -154,14 +170,14 @@
                                                     </dl>
                                                 </div>
                                             </td>
-                                            <td align="center" width="15%"><font class="cart_jmprice" id="goods_price_6686547" style="color:#333;font-weight:normal;">￥${this.res[j].price}</font></td>
+                                            <td align="center" width="15%">￥<font class="cart_jmprice" id="goods_price_6686547" style="color:#333;font-weight:normal;">${this.res[j].price}</font></td>
                                             <td align="center" width="15%">
                                                 <div class="jm_cartnum"> 
                                                     <input type="number" value="${this.goods[j].num}" min=1 size="4" class="jminputBg">
                                                 </div>
                                             </td>
              
-                                            <td align="center" width="15%"><font class="cart_jmprice" id="subtotal_6686547" style="color:#333;font-weight:bold;">￥${this.res[j].price}</font></td>
+                                            <td align="center" width="15%">￥<font class="cart_jmprice" id="subtotal_6686547" style="color:#333;font-weight:bold;">${sub}</font></td>
                                             <td class="delete" width="10%"style="cursor:pointer;">删除</td>
                                         </tr>
                                     </tbody>
@@ -171,6 +187,8 @@
                     }
                 }
             }
+            this.smoney.innerHTML = this.smon;
+            this.smon=0;
             this.tbody.innerHTML = str;
         }
         
@@ -189,7 +207,8 @@
                 }
                 
                 if(target.className == "check"){
-                    that.id = target.parentNode.parentNode.getAttribute("index");
+                    that.id = target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("index");
+                    
                     that.bcheck(target);
                 }
             })
@@ -198,6 +217,9 @@
                 var target = e.target || e.srcElement;
                 if(target.className == "jminputBg"){
                     that.id = target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("index");
+                    
+                    target.parentNode.parentNode.nextElementSibling.children[0].innerHTML=
+                    target.value*target.parentNode.parentNode.previousElementSibling.children[0].innerHTML
                     that.changeCookie(function(i){
                         that.goods[i].num = target.value;
                     });
@@ -207,6 +229,7 @@
                 var acheck = document.querySelectorAll(".check");
                 for(var i=0;i<acheck.length;i++){
                     if(this.checked == true){
+                        
                         acheck[i].checked = true;
                         that.goods[i].check = 1;
                     }else{
@@ -229,8 +252,8 @@
             setCookie("goodsCookie",JSON.stringify(this.goods));
         }
         bcheck(b){
-            for(var i=0;i<this.goods.length;i++){
-                if(this.goods[i].id == this.id){
+            for(var i=0;i<this.goods.length;i++){               
+                if(this.goods[i].id == this.id){                
                     if(this.goods[i].check == 1){
                         this.goods[i].check = 0;
                         b.checked = false;
@@ -241,7 +264,7 @@
                     }
                 }
             }
-            console.log(this.goods);
+
             this.checkbox();
             setCookie("goodsCookie",JSON.stringify(this.goods));
             this.display2();    

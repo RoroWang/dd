@@ -27,7 +27,7 @@
                             <span>手机注册</span>
                             <a href="login.html">已有账号！登录</a>
                         </div>
-                        <form name="loginform" class="loginform" method="post">
+                        <div class="loginform">
                                 <div class="item item-name">
                                     <i class="icon"></i>
                                     <input type="text" id="username" name="username" class="text" tabindex="1" placeholder="手机"/>
@@ -50,22 +50,23 @@
                                     </div>
                                     <div class="item item-pass2">
                                         <i class="icon"></i>
-                                        <input type="password" id="password" name="username" class="text" tabindex="1" placeholder="确认密码"/>
+                                        <input type="password" id="password2" name="username" class="text" tabindex="1" placeholder="确认密码"/>
                                     </div>
-                                    <div class="item yanzhengma">
+                                    <!-- <div class="item yanzhengma">
                                         <input id="mobile_code" class="text text-te fl" type="text" placeholder="手机验证码" name="mobile_code">
                                         <i class="icon"></i>
                                         <input id="zphone" class="zphone" type="button" value="获取手机验证码 ">
-                                    </div>
+                                    </div> -->
                                     <div class="safety" id="autoentry">
                                             <input name="agreement" type="checkbox" value="1" checked="checked" class="checkbox" />
-                                            <label for="remember" class="mar-b">我已阅读并接受《<a href="help-8.html" style="color:#0099FF" target="_blank">回头鱼用户协议</a>》《<a href="help-7.html" style="color:#0099FF" target="_blank">隐私政策</a>》</label>
+                                            <label for="remember" class="mar-b">我已阅读并接受《<a href="help-8.html" style="color:#0099FF" target="_blank">回头鱼用户协议</a>》《<a style="color:#0099FF" target="_blank">隐私政策</a>》</label>
                                     </div>
                                     <div class="loginbtn">
                                         <input type="submit" id="loginsubmit" value="立即注册"/>
+                                        <span id="span" style="font-size:14px;color:#ccc;margin-top:20px;"></span>
                                     </div>
                                 </div>
-                        </form>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -84,4 +85,65 @@
         </div>
     </div>
 </body>
+<script src="../js/cookie.js"></script>
+<script>
+    class Register{
+        constructor(){
+            this.user = document.getElementById("username");
+            this.pass = document.getElementById("password");
+            this.pass2 = document.getElementById("password2");
+            this.reg = document.getElementById("loginsubmit");
+            // this.log = document.getElementById("log");
+            this.span = document.getElementById("span");
+
+            this.addEvent();
+        }
+        addEvent(){
+            var that = this;
+            this.reg.onclick = function(){
+                that.u = that.user.value;
+                that.p = that.pass.value;
+
+                that.setMsg();
+            }
+            // this.log.onclick = function(){
+            //     location.href = "login.html";
+            // }
+        }
+        setMsg(){
+            this.msg = getCookie("userMsg")? JSON.parse(getCookie("userMsg")) : [];
+
+            if(this.msg.length<1){
+                this.msg.push({
+                    user:this.u,
+                    pass:this.p,
+                    onoff:0
+                })
+                this.success();
+            }else{
+                var type = this.msg.some((val,idx)=>{
+                    return val.user === this.u;
+                });
+                if(type){
+                    this.span.innerHTML = "用户名重复";
+                }else{
+                    this.msg.push({
+                    user:this.u,
+                    pass:this.p,
+                    onoff:0
+                    })
+                    this.success();
+                }
+            }
+            setCookie("userMsg",JSON.stringify(this.msg));
+        }
+        success(){
+            this.span.innerHTML = "注册成功，3秒后<a href='login.html'>跳转到登录界面</a>"
+            setTimeout(() => {
+                location.href = "login.html";
+            }, 3000);
+        }
+    }
+    new Register;
+</script>
 </html>
