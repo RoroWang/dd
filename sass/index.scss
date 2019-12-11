@@ -12,6 +12,7 @@ $wit:#fff;
 #top{height: 32px;border: 1px solid $top;background:$twoColor;text-align:center;
     .t-left{float: left;line-height: 32px;font-size: 13px;}
        .t-left em{width: 117px;display: inline-block;}
+       .welcome{display: none;}
        .t-left a{padding: 0 5px;}
        .t-left .login{margin-left: 10px;color: $maincolor;}
        

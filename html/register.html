@@ -32,6 +32,7 @@
                                     <i class="icon"></i>
                                     <input type="text" id="username" name="username" class="text" tabindex="1" placeholder="手机"/>
                                 </div>
+                                <span style="display: block;height: 20px;width: 304px;color: red;"></span>
                                 <div class="item item-pass">
                                     <div class="pass1">
                                         <i class="icon"></i>
@@ -52,6 +53,7 @@
                                         <i class="icon"></i>
                                         <input type="password" id="password2" name="username" class="text" tabindex="1" placeholder="确认密码"/>
                                     </div>
+                                    <span style="display: block;height: 20px;width: 304px;color: red;"></span>
                                     <!-- <div class="item yanzhengma">
                                         <input id="mobile_code" class="text text-te fl" type="text" placeholder="手机验证码" name="mobile_code">
                                         <i class="icon"></i>
@@ -86,64 +88,5 @@
     </div>
 </body>
 <script src="../js/cookie.js"></script>
-<script>
-    class Register{
-        constructor(){
-            this.user = document.getElementById("username");
-            this.pass = document.getElementById("password");
-            this.pass2 = document.getElementById("password2");
-            this.reg = document.getElementById("loginsubmit");
-            // this.log = document.getElementById("log");
-            this.span = document.getElementById("span");
-
-            this.addEvent();
-        }
-        addEvent(){
-            var that = this;
-            this.reg.onclick = function(){
-                that.u = that.user.value;
-                that.p = that.pass.value;
-
-                that.setMsg();
-            }
-            // this.log.onclick = function(){
-            //     location.href = "login.html";
-            // }
-        }
-        setMsg(){
-            this.msg = getCookie("userMsg")? JSON.parse(getCookie("userMsg")) : [];
-
-            if(this.msg.length<1){
-                this.msg.push({
-                    user:this.u,
-                    pass:this.p,
-                    onoff:0
-                })
-                this.success();
-            }else{
-                var type = this.msg.some((val,idx)=>{
-                    return val.user === this.u;
-                });
-                if(type){
-                    this.span.innerHTML = "用户名重复";
-                }else{
-                    this.msg.push({
-                    user:this.u,
-                    pass:this.p,
-                    onoff:0
-                    })
-                    this.success();
-                }
-            }
-            setCookie("userMsg",JSON.stringify(this.msg));
-        }
-        success(){
-            this.span.innerHTML = "注册成功，3秒后<a href='login.html'>跳转到登录界面</a>"
-            setTimeout(() => {
-                location.href = "login.html";
-            }, 3000);
-        }
-    }
-    new Register;
-</script>
+<script src="../js/register.js"></script>
 </html>
