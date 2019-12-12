@@ -2,6 +2,7 @@
     class Magnifier{
         constructor(){
 //				1.选元素
+            this.pro = document.querySelector(".product")
             this.sBox = document.querySelector(".sBox");
             this.sSpan = document.querySelector(".sBox span");
             this.bBox = document.querySelector(".bBox");
@@ -54,8 +55,8 @@
         }
         move(e){
 //				计算span要移动的left和top
-            var l = e.clientX - this.sBox.offsetLeft - this.sSpan.offsetWidth;
-            var t = e.clientY - this.sBox.offsetTop - this.sSpan.offsetHeight/2;
+            var l = e.clientX - this.pro.offsetLeft - this.sSpan.offsetWidth/2;
+            var t = e.clientY - this.pro.offsetTop - this.sSpan.offsetHeight/2;
 //				span的边界限定
             if(l<0) l=0;
             if(t<0) t=0;
