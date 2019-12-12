@@ -124,4 +124,33 @@
     }
     new List();
 
+
+    
+    var aimg = document.querySelectorAll("img[lazySrc]");
+    var arr = Array.from(aimg);
+
+    var clientH = document.documentElement.clientHeight;
+    
+    lazyLoad();
+
+    onscroll = function(){
+
+        lazyLoad();
+    }
+
+    function lazyLoad(){
+        var scrollT = document.documentElement.scrollTop;
+        for(var i=0;i<arr.length;i++){
+
+            if(arr[i].offsetTop - clientH < scrollT){
+                arr[i].src = arr[i].getAttribute("lazySrc");
+                
+
+                arr.splice(i,1);
+
+                i--;
+            }
+        }
+    }
+
 })();

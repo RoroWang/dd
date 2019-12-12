@@ -35,7 +35,7 @@
             this.goods = getCookie("goodsCookie")? JSON.parse(getCookie("goodsCookie")):[];
 
             this.display2();
-            // this.display();
+
         }
         display2(){
 
@@ -136,7 +136,9 @@
                     }else{
                         acheck[i].checked = false;
                         that.goods[i].check = 0;
+                        that.smoney.innerHTML = 0;
                     }
+                    
                 }
                 setCookie("goodsCookie",JSON.stringify(that.goods));
             }

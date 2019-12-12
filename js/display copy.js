@@ -52,6 +52,7 @@
             var that = this;
 
             this.cont3.addEventListener("click",function(eve){
+                console.log(1)
                 var e = eve || window.event;
                 var target = e.target || e.srcElement;
                 if(target.className == "btn"){
